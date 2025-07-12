@@ -12,3 +12,16 @@ class ShopManagementSystem:
         # Initialize database
         self.init_database()
 
+        # Current user info
+        self.current_user = None
+        self.current_role = None
+        self.current_store = None
+
+        # Show login screen
+        self.show_login()
+
+    def init_database(self):
+        """Initialize SQLite database with all necessary tables"""
+        self.conn = sqlite3.connect('shop_management.db')
+        self.cursor = self.conn.cursor()
+
